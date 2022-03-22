@@ -16,14 +16,30 @@ app.use(bodyParser.json())
 // Resources definitions
 const User = mongoose.model('Dental Sorriso', { nome: String, CPF: String, peso: String, altura: String })
 
+const UserDental = mongoose.model(' Dental sorriso', { nome: String, CPF: String, peso: String, altura: String })
+
+
 var artcileSchema = new mongoose.Schema({
+ nome: String,
+ CPF: String,
+ Endereço: String,
+created_at: { type: Date, default: Date.now }
+});
+
+const Article = mongoose.model('Pampulha Intermédica', artcileSchema);
+
+
+//outros planos
+const UserMente = mongoose.model('Mente Sã, Corpo São', { CPF: String, 'Horas meditadas nos últimos 7 dias': String })
+
+var artcileSchema1 = new mongoose.Schema({
  nome: String,
  CPF: String,
  Email: String,
 created_at: { type: Date, default: Date.now }
 });
 
-const Article = mongoose.model('Norte Europa', artcileSchema);
+const ArticleNorte = mongoose.model('Norte Europa', artcileSchema1);
 
 
 // Routes definitions
@@ -49,21 +65,51 @@ app.get('/articles', async (req, res) => {
 
 
 const createParent = {
-  name: 'Create',
+  name: 'Tio Patinhas Bank',
   icon: 'fa fa-coffee',
 }
 
 const managerParent = {
-  name: 'Manage',
+  name: 'Acme Co',
   icon: 'fa fa-cog',
 	
-
 }
 
 
 // Pass all configuration settings to AdminBro
 const adminBro = new AdminBro({
- resources: [User, Article],
+  resources: [
+    {
+       resource: User, options: { parent: managerParent }
+    },
+    {
+       resource: UserMente, options: { parent: createParent }
+    },
+    {
+      resource: UserDental, options: { parent: createParent }
+   },
+    {
+       resource: Article, options: {
+         properties: {
+           created_at: { isVisible: { list: false, filter: false, show: true, edit: false } }
+        },
+         parent: createParent
+      }
+    },
+    {
+      resource: ArticleNorte, options: {
+        properties: {
+          created_at: { isVisible: { list: false, filter: false, show: true, edit: false } }
+       },
+        parent: managerParent
+     }
+   }
+  ],
+
+
+
+
+
  rootPath: '/admin',
   branding: {
     companyName: 'PIPO SAÚDE', logo: false
