@@ -5,6 +5,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const AdminBro = require('admin-bro')
 const AdminBroExpressjs = require('admin-bro-expressjs')
+const { float } = require('webidl-conversions')
+const { number } = require('yargs')
 
 // We have to tell AdminBro that we will manage mongoose resources with it
 AdminBro.registerAdapter(require('admin-bro-mongoose'))
@@ -14,9 +16,9 @@ const app = express()
 app.use(bodyParser.json())
 
 // Resources definitions
-const User = mongoose.model('Dental Sorriso', { nome: String, CPF: String, peso: String, altura: String })
+const User = mongoose.model('Dental Sorriso', { nome: String, CPF: String, 'peso (kg)': String, 'altura (cm)': String })
 
-const UserDental = mongoose.model(' Dental sorriso', { nome: String, CPF: String, peso: String, altura: String })
+const UserDental = mongoose.model(' Dental sorriso', { nome: String, CPF: String, 'peso (kg)': String, 'altura (cm)': String })
 
 
 var artcileSchema = new mongoose.Schema({
@@ -66,12 +68,12 @@ app.get('/articles', async (req, res) => {
 
 const createParent = {
   name: 'Tio Patinhas Bank',
-  icon: 'fa fa-coffee',
+  icon: false,
 }
 
 const managerParent = {
   name: 'Acme Co',
-  icon: 'fa fa-cog',
+  icon: false,
 	
 }
 
