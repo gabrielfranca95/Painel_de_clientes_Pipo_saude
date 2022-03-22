@@ -25,7 +25,7 @@ var artcileSchema = new mongoose.Schema({
  nome: String,
  CPF: String,
  Endereço: String,
-created_at: { type: Date, default: Date.now }
+'Data de Admissão': { type: Date, default: Date.now }
 });
 
 const Article = mongoose.model('Pampulha Intermédica', artcileSchema);
@@ -38,7 +38,7 @@ var artcileSchema1 = new mongoose.Schema({
  nome: String,
  CPF: String,
  Email: String,
-created_at: { type: Date, default: Date.now }
+Data_de_Admissão: { type: Date, default: Date.now }
 });
 
 const ArticleNorte = mongoose.model('Norte Europa', artcileSchema1);
@@ -91,21 +91,11 @@ const adminBro = new AdminBro({
       resource: UserDental, options: { parent: createParent }
    },
     {
-       resource: Article, options: {
-         properties: {
-           created_at: { isVisible: { list: false, filter: false, show: true, edit: false } }
-        },
-         parent: createParent
-      }
+       resource: Article, options: { parent: createParent}
     },
     {
-      resource: ArticleNorte, options: {
-        properties: {
-          created_at: { isVisible: { list: false, filter: false, show: true, edit: false } }
-       },
-        parent: managerParent
-     }
-   }
+      resource: ArticleNorte, options: { parent: managerParent }
+    }
   ],
 
 
