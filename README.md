@@ -149,7 +149,7 @@ run()
 Em breve irei dar mais explicações sobre o código acima, mas antes vamos terminar as configurações!
 Agora com seu arquivo criado vamos para algumas configurações do adminBro; abra o terminal no vs code digite o camando abaixo:
 ````
-npm install adminjs @adminjs/express
+npm install admin-bro admin-bro-expressjs
 ````
 Caso já tenho o express instalado desconsidere a linha abaixo, caso não tenha digite:
 ````
@@ -160,7 +160,7 @@ npm install express express-formidable
 
 Utilizaremos o mongodb localmente, certifiquese te-lo atualizado em sua máquina, utilizaremos a biblioteca mongoose, lincando a mesma ao adminbro, para tal feito digite o camando abaixo:
 ````
-npm install @adminjs/mongoose
+npm install admin-bro-mongoose
 ````
 lembre-se de ter iniciado o mongodb, caso não o tenha feito, abra outra aba no terminal e digite:
 ````
@@ -172,3 +172,38 @@ para rodar a aplicação digite no terminal:
 node admin.js
 ````
 e acesse: http://localhost:8080/admin para ver a aplicação funcionando!
+
+## Alterando a aparência
+Agora irei mostrar como é possível manipular um pouco do adminiBro por ser uma aplicação react as possibilidades são vastas aqui irei mostrar alguns recursos, para mais informações visite o site da documentação oficial neste link: https://v2.adminbro.com/tutorial-writing-react-components.html
+### Manipulando o Título
+para manipular o título que aparece na barra de navegação procure pelo seguinte trecho de código no arquivo admin.js:
+````
+ rootPath: '/admin',
+  branding: {
+    companyName: 'PIPO SAÚDE', logo: false
+  },
+})
+````
+dentro do campo comentado como :// Pass all configuration settings to AdminBro
+e modifique para 
+````
+ rootPath: '/admin',
+  branding: {
+    companyName: 'Seu Título', logo: false
+  },
+})
+
+````
+para ver as alterações basta reestartar a aplicação, encerrando o servidor e ligando novamente com (node admin.js)
+### Manipulando a logotipo
+Para inserir uma logotipo a sua aplicação informe a fonte da mesma no campo descrito como logo. Eu deixei o campo como false pois caso não o faça a aplicação exibirá a logo padrão do adminBro. segue abaixo o exemplo de modificação da logo:
+````
+ rootPath: '/admin',
+  branding: {
+    companyName: 'Seu Título', logo: https://localdasualogo/referencia.com
+  },
+})
+
+````
+
+
