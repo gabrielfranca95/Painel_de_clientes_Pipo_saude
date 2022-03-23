@@ -12,9 +12,11 @@ node.js versão LTS instalado em sua maquina, mongodb versão local, (também po
 ````
 ## Requisitos de hardware estimados:
 ````
-a aplicação foi rodada em uma VM com as seguintes configurações: 4gbRam, 20gb de armazenamento interno.
+a aplicação foi rodada em uma VM linux ubuntu, com as seguintes configurações: 4gbRam, 20gb de armazenamento interno.
 ````
 # Mão na massa:
+Abra o seu editor de códigos, eu utilizo o vs code, link para downloado: https://code.visualstudio.com/
+
 Crie um arquivo chamado admin.js em um repositorio local(pasta):
 ````
 touch admin.js
@@ -145,7 +147,7 @@ const run = async () => {
 run()
 ````
 Em breve irei dar mais explicações sobre o código acima, mas antes vamos terminar as configurações!
-Agora com seu arquivo criado vamos para algumas configurações do adminBro; digite o camando abaixo:
+Agora com seu arquivo criado vamos para algumas configurações do adminBro; abra o terminal no vs code digite o camando abaixo:
 ````
 npm install adminjs @adminjs/express
 ````
@@ -160,4 +162,13 @@ Utilizaremos o mongodb localmente, certifiquese te-lo atualizado em sua máquina
 ````
 npm install @adminjs/mongoose
 ````
-
+lembre-se de ter iniciado o mongodb, caso não o tenha feito, abra outra aba no terminal e digite:
+````
+sudo systemctl start mongod
+````
+## Aplicação
+para rodar a aplicação digite no terminal:
+````
+node admin.js
+````
+e acesse: http://localhost:8080/admin para ver a aplicação funcionando!
