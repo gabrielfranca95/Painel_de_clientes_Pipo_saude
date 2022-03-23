@@ -212,14 +212,55 @@ para realizar tal manipulção será necessário modificar o arquivo presente no
 onde cada const é uma empresa, sendo assim para adicionar uma nova empresa será necessário criar um conjunto similar aos existente e adicionar ao código:
 ````
 const novaempresa = {
-  name: 'Tio Patinhas Bank 2',
+  name: 'nome da empresa visivel na aplicação',
   icon: false,
 }
 ````
 Feito isso você cria uma nova empresa, ao atualizar o servidor será possível visualiza-la. Alem disto é possivel importar um icone para identificar a empresa substituindo o campo "icon: false," pelo codigo do icone desejado.
 
-### Adicionando planos de saúde
+### Movendo os planos de saúde entre as empresas
 apos criar este novo conjunto de código procure pela seção de comentários descrito como: // Pass all configuration settings to AdminBro
-e observe que em cada resource existe uma empresa a ser referenciada como por exemplo "managerParent" que é referenciada por "User" onde User é um plano de saúde e managerParent é uma empresa, logo  
+e observe que em cada resource existe uma empresa a ser referenciada como por exemplo "managerParent" que é referenciada por "User" onde User é um plano de saúde e managerParent é uma empresa, logo para mover um plano para outra empresa basta trocar a empresa referenciada como no exemplo abaixo:
+````
+// Pass all configuration settings to AdminBro
+const adminBro = new AdminBro({
+  resources: [
+    {
+       resource: User, options: { parent: novaempresa }
+    },
+    {
+       resource: UserMente, options: { parent: createParent }
+    },
+    {
+      resource: UserDental, options: { parent: createParent }
+   },
+    {
+       resource: Article, options: { parent: createParent}
+    },
+    {
+      resource: ArticleNorte, options: { parent: managerParent }
+    }
+````
 
-
+onde o primeiro contido o trecho "novaempresa" é a ultima empresa adicionada, e agora um exemplo de como ficaria o codigo se movessemos todos os planos para nova empresa:
+````
+// Pass all configuration settings to AdminBro
+const adminBro = new AdminBro({
+  resources: [
+    {
+       resource: User, options: { parent: novaempresa }
+    },
+    {
+       resource: UserMente, options: { parent: novaempresa }
+    },
+    {
+      resource: UserDental, options: { parent: novaempresa }
+   },
+    {
+       resource: Article, options: { parent: novaempresa}
+    },
+    {
+      resource: ArticleNorte, options: { parent: novaempresa }
+    }
+````
+deste modo todos os planos de saúde seriam movidos para a nova empresa visivel na aplicação.
