@@ -264,3 +264,48 @@ const adminBro = new AdminBro({
     }
 ````
 deste modo todos os planos de saúde seriam movidos para a nova empresa visivel na aplicação.
+
+### Adicionando e modificando planos de saúde
+Para adicionar novos planos de saude procure pelo campo comentado como // Resources definitions
+e observer que a "cost User" cria uma arrey para o mongo db contendo os seguintes campos:  
+````
+const User = mongoose.model('Dental Sorriso', { nome: String, CPF: String, 'peso (kg)': String, 'altura (cm)': String })
+````
+Este trecho de código representa o plano de saúde Dental sorriso, note que logo abaixo existe outro campo semelhante porem com um espaço entre as "" este espaço foi proposital para que o banco de dados não enterpretasse o plano de saúde como sendo igual ao plano de saúde da outra empresa já que temos duas empresas com o mesmo plano contido, porém cada empresa possui seus funcionários, caso não o tivesse referenciado o banco de dados iria receber os funcionários dos dois planos em conjunto causando uma desorganização.
+seguindo com o código para adicionar seções de preênchimento de dados ou removelas acrescente ou apague os campos:
+````
+const User = mongoose.model('Dental Sorriso', { CPF: String, Rg: String, 'altura (cm)': String })
+````
+como o exemplo acima mostra o campo nome foi removido e o campo rg foi adicionado, sendo assim na aplicação sera exibido exatamente o que foi descrito no código e respectivamente armazenado no banco de dados.
+Para adicionar um novo plano basta copiar o conjunto de codigos e respectivamente modificar as informações desejadas:
+````
+const User = mongoose.model('Dental Sorriso', { nome: String, CPF: String, 'peso (kg)': String, 'altura (cm)': String })
+const novoplano = mongoose.model('Nome do novo plano', { CPF: String, 'peso (kg)': String, 'altura (cm)': String })
+````
+acima o exemplo em que foi copiado o plano "Dental sorriso" e adicionado um novo plano sem exigências de cpf para cadastrar um novo usuário. Feito isso basta adicionar o plano no campo // Pass all configuration settings to AdminBro
+referenciando a empresa a qual o plano deve fazer parte:
+````
+// Pass all configuration settings to AdminBro
+const adminBro = new AdminBro({
+  resources: [
+    {
+       resource: User, options: { parent: managerParent }
+    },
+    {
+    //novo plano adicionado
+       resource: novoplano, options: { parent: createParent } 
+    },
+    {
+       resource: UserMente, options: { parent: createParent }
+    },
+    {
+      resource: UserDental, options: { parent: createParent }
+   },
+    {
+       resource: Article, options: { parent: createParent}
+    },
+    {
+      resource: ArticleNorte, options: { parent: managerParent }
+    }
+````
+
