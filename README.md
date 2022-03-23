@@ -28,4 +28,10 @@ Caso já tenho o express instalado desconsidere a linha abaixo, caso não tenha 
 npm install express express-formidable
 ````
 
+## banco de dados
+
+Utilizaremos o mongodb localmente, certifiquese te-lo atualizado em sua máquina, utilizaremos a biblioteca mongoose, lincando a mesma ao adminbro, para tal feito digite o camando abaixo:
+````
+npm install @adminjs/mongoose
+````
 
