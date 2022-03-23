@@ -1,4 +1,5 @@
 # Painel_de_clientes_Pipo_saude
+Os demais arquivos do projeto encontram se no branch master, porém os mesmos serão instalados em sua maquina seguindo o tutorial abixo!
 #### Aplicação de um painel de planos de saúde e cadastros de clientes com node.js, Express, Mongodb e React(adminbro)
 ![WhatsApp Image 2022-03-23 at 09 05 36](https://user-images.githubusercontent.com/57453192/159696341-82de8083-a281-4563-830d-24a197f0f73c.jpeg)
 
@@ -205,5 +206,20 @@ Para inserir uma logotipo a sua aplicação informe a fonte da mesma no campo de
 })
 
 ````
+### Adicionando e removendo empresas
+para realizar tal manipulção será necessário modificar o arquivo presente no conjunto de códigos comentado como: // Route whick retuns articles
+
+onde cada const é uma empresa, sendo assim para adicionar uma nova empresa será necessário criar um conjunto similar aos existente e adicionar ao código:
+````
+const novaempresa = {
+  name: 'Tio Patinhas Bank 2',
+  icon: false,
+}
+````
+Feito isso você cria uma nova empresa, ao atualizar o servidor será possível visualiza-la. Alem disto é possivel importar um icone para identificar a empresa substituindo o campo "icon: false," pelo codigo do icone desejado.
+
+### Adicionando planos de saúde
+apos criar este novo conjunto de código procure pela seção de comentários descrito como: // Pass all configuration settings to AdminBro
+e observe que em cada resource existe uma empresa a ser referenciada como por exemplo "managerParent" que é referenciada por "User" onde User é um plano de saúde e managerParent é uma empresa, logo  
 
 
