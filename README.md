@@ -6,5 +6,19 @@ A aplicação permite a inserção de novos usuários baseando-se nos planos de 
 ![WhatsApp Image 2022-03-23 at 09 04 11](https://user-images.githubusercontent.com/57453192/159697676-0e41b90e-adb4-4a50-ba91-943680b96a04.jpeg)
 
 Utilando node.js, Express para ciração do servidor local, mongodb como banco de dados e solicitando a biblioteca mongoose, e utilizando react com adminBro.
+## Requisitos:
+````
+node.js versão LTS instalado em sua maquina, mongodb versão local, (também podendo ser cirado com o mongo atlas, porém para este tutorial usaremos a versão local)  Express formidable
+````
+## Requisitos de hardware estimados:
+````
+a aplicação foi rodada em uma VM com as seguintes configurações: 4gbRam, 20gb de armazenamento interno.
+````
+# Mão na massa:
+Crie um arquivo chamado admin.js em um repositorio local(pasta):
+````
+touch admin.js
+````
+agora com seu arquivo criado 
 
 
