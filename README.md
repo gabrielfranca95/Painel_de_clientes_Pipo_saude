@@ -19,6 +19,13 @@ Crie um arquivo chamado admin.js em um repositorio local(pasta):
 ````
 touch admin.js
 ````
-agora com seu arquivo criado 
+agora com seu arquivo criado vamos para algumas configurações do adminBro; digite o camando abaixo:
+````
+npm install adminjs @adminjs/express
+````
+Caso já tenho o express instalado desconsidere a linha abaixo, caso não tenha digite:
+````
+npm install express express-formidable
+````
 
 
