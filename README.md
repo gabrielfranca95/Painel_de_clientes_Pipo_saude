@@ -1,5 +1,5 @@
 # Painel_de_clientes_Pipo_saude
-Os demais arquivos do projeto encontram se no branch master, porém os mesmos serão instalados em sua maquina seguindo o tutorial abixo!
+Os demais arquivos do projeto encontram se no branch master, porém os mesmos serão instalados em sua maquina seguindo o tutorial abaixo!
 #### Aplicação de um painel de planos de saúde e cadastros de clientes com node.js, Express, Mongodb e React(adminbro)
 ![WhatsApp Image 2022-03-23 at 09 05 36](https://user-images.githubusercontent.com/57453192/159696341-82de8083-a281-4563-830d-24a197f0f73c.jpeg)
 
